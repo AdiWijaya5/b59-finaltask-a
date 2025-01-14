@@ -17,7 +17,7 @@
           <tr class="border-b text-xs md:text-sm text-center text-white">
            <td class="p-2 md:p-4">{{this.typehero}}</td>
             <td class="relative p-2 md:p-4 flex justify-center space-x-2">
-                <div class="w-full btn-group btn-group-vertical lg:btn-group-horizontal">
+              <div class="w-full btn-group btn-group-vertical lg:btn-group-horizontal">
               <a href="/editTypeHero/{{this.id}}" class="px-2 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-600 dark:bg-red-600 dark:hover:bg-red-800 dark:focus:ring-red-900">Edit Type</a>
               <form action="/deletetypehero/{{this.id}}?_method=DELETE" method="post" class="inline">
               <button onclick="deletButton()" type="submit" class="text-white  bg-red-600 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-800 dark:focus:ring-red-900">Delete</button>

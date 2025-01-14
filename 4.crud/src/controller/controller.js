@@ -144,7 +144,6 @@ async function renderAddHero(req, res) {
 }
 
 async function addtypehero(req, res) {
-  const { users } = req.session;
   const { typeHer } = req.body;
 
   await typeHero.create({
@@ -152,7 +151,7 @@ async function addtypehero(req, res) {
   });
 
   req.flash("success", "success add Type Hero");
-  res.redirect("/"());
+  res.redirect("/");
 }
 
 async function addhero(req, res) {
@@ -218,6 +217,11 @@ async function renderDetailTypeHero(req, res) {
   const hero = await typeHero.findAll({
     order: [["createdAt", "DESC"]],
   });
+
+  if (!users) {
+    req.flash("error", "Bukan Hak Anda");
+    return res.redirect("/");
+  }
 
   res.render("detailtypeHero", { users, hero });
 }
