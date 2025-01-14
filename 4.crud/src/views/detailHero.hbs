@@ -1,0 +1,35 @@
+{{#> layout title="Detail Hero" users=users }}
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto ">
+      <div class="transform w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 duration-500 hover:scale-105">
+         <div class="relative p-2.5 h-96 overflow-hidden rounded-lg bg-clip-border">
+          <img
+              src="{{data.image}}"
+              alt="detail-image"
+              class="h-full w-full object-cover"
+            />
+         </div>
+         <div class="p-3">
+                <h5
+                  class="mb-2 text-2xl italic font-bold tracking-tight text-gray-900 dark:text-white"
+                >{{data.title}}</h5>
+              <p class="mb-3 font-semibold text-yellow-300 dark:text-yellow-300">
+                {{data.typehero.typehero}} 
+              </p>
+              <p class="mb-3 font-normal text-justify text-gray-100 dark:text-gray-100">
+                {{data.description}} 
+              </p>
+            {{#if (equal users.id data.user_id)}}
+            <div class="w-full btn-group btn-group-vertical lg:btn-group-horizontal">
+            <a href="/editHero/{{data.id}}" class="px-2 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-600 dark:bg-red-600 dark:hover:bg-red-800 dark:focus:ring-red-900">Edit Card Hero</a>
+             <form action="/deletehero/{{data.id}}?_method=DELETE" method="post" class="inline">
+            <button onclick="deletButton()" type="submit" class="text-white bg-red-600 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-800 dark:focus:ring-red-900">Delete Card Hero</button>
+            </form>
+            </div>
+            {{/if}}
+        </div>
+      </div>
+    </div>
+    <script src="/src/assets/js/vanila.tilt.js"></script>
+</section>
+{{/layout}}

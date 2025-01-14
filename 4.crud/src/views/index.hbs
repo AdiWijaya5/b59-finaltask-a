@@ -1,0 +1,35 @@
+{{#> layout title='Home' users=users }}
+    <div class="flex justify-center pt-6">
+      <div id="${i}" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {{#each herolist}}
+          <div class="transform max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer group duration-500 hover:scale-105">
+          <div class="relative p-2.5 h-96 overflow-hidden rounded-lg bg-clip-border">
+            <img
+              src="{{this.image}}"
+              alt="card-image"
+              class="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.25, 1, 0.5, 1)] transform group-hover:scale-110"
+            />
+          </div>
+            <div class="p-3">
+              <a href="/detailhero/{{this.id}}">
+                <h5
+                  class="mb-2 text-2xl italic font-bold tracking-tight text-gray-900 dark:text-white"
+                >{{this.title}}
+                </h5>
+              </a>
+              <p class="mb-3 font-normal text-yellow-300 dark:text-yellow-300">
+                {{this.typehero.typehero}} 
+              </p>
+              <a
+                href="/detailhero/{{this.id}}"
+              >
+              <button class="rounded-md w-full mt-2 bg-red-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-red-700 focus:shadow-none active:bg-red-700 hover:bg-red-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+                Detail
+              </button>
+              </a>
+            </div>
+          </div>
+      {{/each}}
+      </div>
+    </div>
+{{/layout}}
